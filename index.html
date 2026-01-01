@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Protocol Zero</title>
+    
+    <!-- Process Polyfill -->
+    <script>
+      window.process = window.process || { env: { NODE_ENV: 'production', API_KEY: '' } };
+    </script>
+
+    <!-- Tailwind Config -->
+    <script>
+      window.tailwindConfig = {
+        theme: {
+          extend: {
+            colors: {
+              'zero-black': '#09090b',
+              'zero-gray': '#27272a',
+              'zero-white': '#f4f4f5',
+              'zero-red': '#dc2626',
+              'zero-subtle': '#52525b',
+              'serenity-dark': '#0f172a',
+              'serenity-card': 'rgba(255, 255, 255, 0.05)',
+              'serenity-accent': '#2dd4bf',
+              'serenity-text': '#e2e8f0',
+            },
+            fontFamily: {
+              mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
+              sans: ['system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+            },
+            animation: {
+              'breathe': 'breathe 4s infinite ease-in-out',
+              'pulse-fast': 'pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'float': 'float 6s ease-in-out infinite',
+              'fade-in': 'fadeIn 0.5s ease-out forwards',
+            },
+            keyframes: {
+              breathe: {
+                '0%, 100%': { transform: 'scale(1)', opacity: '0.3' },
+                '50%': { transform: 'scale(1.1)', opacity: '0.6' },
+              },
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-10px)' },
+              },
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              }
+            }
+          },
+        },
+      };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      if (window.tailwind) {
+        tailwind.config = window.tailwindConfig;
+      }
+    </script>
+
+    <style>
+      body {
+        background-color: #09090b;
+        color: #f4f4f5;
+        overscroll-behavior: none;
+      }
+      ::-webkit-scrollbar { display: none; }
+      .glass {
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+      }
+      .serenity-gradient {
+        background: radial-gradient(circle at top left, #134e4a, #0f172a, #000000);
+      }
+    </style>
+
+    <!-- Import Map: STRICT Clean Version -->
+    <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@18.2.0",
+    "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+    "lucide-react": "https://esm.sh/lucide-react@0.292.0?deps=react@18.2.0",
+    "firebase/app": "https://esm.sh/firebase@10.7.1/app",
+    "firebase/firestore": "https://esm.sh/firebase@10.7.1/firestore",
+    "@google/genai": "https://esm.sh/@google/genai@0.1.1",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "firebase/": "https://esm.sh/firebase@^12.7.0/"
+  }
+}
+</script>
+    <script type="module" src="index.tsx"></script>
+  <link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
